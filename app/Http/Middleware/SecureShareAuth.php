@@ -20,7 +20,7 @@ class SecureShareAuth
       if(strlen($request->getContent()) <= 200){
         $body = $request->getContent();
       } elseif(strlen($request->getContent()) > 200){
-        $body = substr($request->getContent(), 0, 200);
+        $body = substr($request->getContent(), 0, 201);
       }
 
       $signature = base64_encode(hash_hmac('sha1', $request->fullUrl() . $body, config('app.secure_share'), $raw_output=TRUE));
