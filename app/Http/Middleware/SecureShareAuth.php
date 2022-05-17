@@ -23,8 +23,8 @@ class SecureShareAuth
         $body = substr($request->getContent(), 0, 200);
       }
 
-      $signature = base64_encode(hash_hmac('sha1', $request->getRequestUri() . $body, config('app.secure_share'), $raw_output=TRUE));
-      Log::debug($request->getRequestUri());
+      $signature = base64_encode(hash_hmac('sha1', $request->fullUrl() . $body, config('app.secure_share'), $raw_output=TRUE));
+      Log::debug($request->fullUrl());
       Log::debug($signature);
       Log::debug($request->header('X-SecureShare-Signature'));
       if($signature == $request->header('X-SecureShare-Signature')){
