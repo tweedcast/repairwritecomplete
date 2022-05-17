@@ -22,6 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('auth:sanctum')->get('/repair-list/{location:slug}', [RepairController::class, 'repair_list'])->name('location-repair-list');
 
 
-Route::middleware('secure_share')->post('/repair/bms-import', [BMSImportController::class, 'import']);
+Route::middleware('secure_share')->post('/repair/bms-import/estimate', [BMSImportController::class, 'import']);
 
 Route::get('/repair/bms-import/ping', [BMSImportController::class, 'ping']);
