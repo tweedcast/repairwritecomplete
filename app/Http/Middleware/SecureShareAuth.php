@@ -27,5 +27,6 @@ class SecureShareAuth
       if($signature == $request->header('X-SecureShare-Signature')){
         return $next($request);
       }
+      abort(401);
     }
 }
