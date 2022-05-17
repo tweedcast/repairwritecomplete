@@ -27,6 +27,7 @@ class SecureShareAuth
       Log::debug($request->fullUrl());
       Log::debug($signature);
       Log::debug($request->header('X-SecureShare-Signature'));
+      Log::debug($body);
       if($signature == $request->header('X-SecureShare-Signature')){
         return $next($request);
       }
