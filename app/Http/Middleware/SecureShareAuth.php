@@ -17,13 +17,14 @@ class SecureShareAuth
      */
     public function handle(Request $request, Closure $next)
     {
-      if(strlen($request->getContent()) <= 200){
+      if(mb_strlen($request->getContent()) <= 200){
         $body = $request->getContent();
-      } elseif(strlen($request->getContent()) > 200){
-        $body = substr($request->getContent(), 0, 201);
+      } elseif(mb_strlen($request->getContent()) > 200){
+        $body = mb_substr($request->getContent(), 0, 200);
       }
 
       $signature = base64_encode(hash_hmac('sha1', $request->fullUrl() . $body, config('app.secure_share'), $raw_output=TRUE));
+      Log::debug($request->getContent());
       Log::debug($request->fullUrl());
       Log::debug($signature);
       Log::debug($request->header('X-SecureShare-Signature'));
