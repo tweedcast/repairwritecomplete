@@ -14,6 +14,6 @@ class BMSImportController extends Controller
 
     public function ping()
     {
-      return Carbon::now('UTC')->toISOString();
+      return \Carbon\Carbon::now('UTC')->toISOString();
     }
 }
