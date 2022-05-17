@@ -24,12 +24,11 @@ class SecureShareAuth
       }
 
       $signature = base64_encode(hash_hmac('sha1', $request->fullUrl() . $body, config('app.secure_share_key'), $raw_output=TRUE));
-
-      Log::debug($request->fullUrl());
-      Log::debug($signature);
-      Log::debug($request->header('X-SecureShare-Signature'));
-      Log::debug($body);
-        Log::debug(var_dump($request));
+      //Log::debug($request->fullUrl());
+      //Log::debug($signature);
+      //Log::debug($request->header('X-SecureShare-Signature'));
+      //Log::debug($body);
+      //Log::debug(var_dump($request));
       if($signature == $request->header('X-SecureShare-Signature')){
         return $next($request);
       }
