@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class SecureShareAuth
 {
@@ -23,7 +24,8 @@ class SecureShareAuth
       }
 
       $signature = base64_encode(hash_hmac('sha1', $body , config('app.secure_share'), true));
-
+      Log::debug($signature);
+      Log::debug($request->header('X-SecureShare-Signature'));
       if($signature == $request->header('X-SecureShare-Signature')){
         return $next($request);
       }
