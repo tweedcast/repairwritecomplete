@@ -875,6 +875,9 @@ select {
 .max-w-7xl {
   max-width: 80rem;
 }
+.max-w-\[65px\] {
+  max-width: 65px;
+}
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -1276,6 +1279,9 @@ select {
 }
 .text-\[1\.5vw\] {
   font-size: 1.5vw;
+}
+.text-\[22px\] {
+  font-size: 22px;
 }
 .font-medium {
   font-weight: 500;
