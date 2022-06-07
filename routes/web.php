@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RepairController;
+use Redirect;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,12 +18,7 @@ use App\Http\Controllers\RepairController;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return Redirect(route('dashboard'));
 });
 
 Route::get('/dashboard', [DashboardController::class, 'route'])->middleware(['auth', 'verified'])->name('dashboard');
