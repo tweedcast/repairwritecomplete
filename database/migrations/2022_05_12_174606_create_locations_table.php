@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -17,7 +18,14 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
+            $table->string('address_1');
+            $table->string('address_2')->nullable();
+            $table->string('city');
+            $table->string('state');
+            $table->string('zip');
+            $table->string('phone')->nullable();
             $table->string('slug');
+            $table->string('ccc_rf_id')->nullable();
             $table->unsignedInteger('organization_id');
         });
     }

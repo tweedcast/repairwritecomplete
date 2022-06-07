@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+  
     /**
      * Run the migrations.
      *
@@ -19,7 +20,8 @@ return new class extends Migration
             $table->unsignedInteger('repair_id');
             $table->string('lbr_type');
             $table->string('lbr_desc');
-            $table->float('rate');            
+            $table->integer('lbr_rate');
+            $table->boolean('taxable')->default(1);
         });
     }
 

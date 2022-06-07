@@ -108,7 +108,7 @@ class CCCMaps {
      "YUGO" => "Yugo",
    ];
 
-   public $groups = [
+   public static $groups = [
      "MODEL IDENTIFICATION",
      "PART NOTES",
      "SERVICE NOTES",
@@ -321,6 +321,15 @@ class CCCMaps {
      "RECYCLED ASSEMBLIES",
    ];
 
+   public $doc_type = [
+     'E' => 'Vehicle Damage Estimate'
+   ];
+
+   public $doc_ver = [
+     'EM' => 'Original',
+     'SV' => 'Supplement'
+   ];
+
 
    public static function get_make($code)
    {
@@ -332,7 +341,7 @@ class CCCMaps {
 
    public static function check_is_group($group)
    {
-     if(in_array($group, self::$groups)){
+     if(in_array(trim($group), self::$groups)){
        return true;
      }
 

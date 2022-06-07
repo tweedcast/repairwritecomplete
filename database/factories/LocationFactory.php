@@ -17,9 +17,7 @@ class LocationFactory extends Factory
     public function definition()
     {
         return [
-            'name' => 'Classic Accident Repair Center',
-            'slug' => 'ClassicAccidentRepairCenter',
-            'organization_id' => 1
+            
         ];
     }
 }

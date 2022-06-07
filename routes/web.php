@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RepairController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,5 +30,7 @@ Route::get('/dashboard', [DashboardController::class, 'route'])->middleware(['au
 Route::get('/dashboard/{organization:slug}', [DashboardController::class, 'organization'])->middleware(['auth', 'verified', 'admin'])->name('organization-dashboard');
 
 Route::get('/dashboard/{organization:slug}/{location:slug}', [DashboardController::class, 'location'])->middleware(['auth', 'verified'])->name('location-dashboard');
+
+Route::get('/repair-review/{organization:slug}/{location:slug}/{repair}', [RepairController::class, 'repair_review_show'])->middleware(['auth', 'verified'])->name('repair-review');
 
 require __DIR__.'/auth.php';

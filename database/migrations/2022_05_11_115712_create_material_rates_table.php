@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+  
     /**
      * Run the migrations.
      *
@@ -18,8 +19,9 @@ return new class extends Migration
             $table->timestamps();
             $table->unsignedInteger('repair_id');
             $table->string('matl_type');
-            $table->string('cal_desc');
-            $table->float('cal_lbrrte');
+            $table->string('matl_desc');
+            $table->integer('matl_rate');
+            $table->boolean('taxable')->default(1);
         });
     }
 

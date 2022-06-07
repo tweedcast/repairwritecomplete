@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -16,6 +17,10 @@ return new class extends Migration
         Schema::create('totals', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedInteger('repair_id');
+            $table->string('ttl_type');
+            $table->string('ttl_desc');
+            $table->float('t_amt');
         });
     }
 

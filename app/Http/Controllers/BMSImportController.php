@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\CCCBmsImport;
 
 class BMSImportController extends Controller
 {
-    public function import(Request $request)
+    public function ccc_import(Request $request)
     {
-      return 'ok';
+
+      $import = new CCCBmsImport($request->getContent());
+      if($import->check_location()){
+        return $import->process();
+      }
+      return 'fail';
     }
 
 

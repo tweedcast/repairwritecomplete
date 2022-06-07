@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -17,25 +18,20 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->unsignedInteger('repair_id');
-            $table->integer('line_no');
-            $table->string('line_ind');
-            $table->integer('unq_seq');
+            $table->string('line_num');
+            $table->boolean('is_header')->default(0);
+            $table->boolean('is_child')->default(0);
+            $table->string('unique_sequence_num');
+            $table->string('estimate_ver_code')->nullable();
+            $table->string('estimate_ver_desc')->nullable();
+            $table->boolean('manual_line_ind')->default(0);
+            $table->string('line_status_code')->nullable();
+            $table->string('line_status_desc')->nullable();
             $table->string('line_desc');
-            $table->string('part_type')->nullable();
-            $table->boolean('part_des_j');
-            $table->string('oem_partno');
-            $table->float('act_price');
-            $table->boolean('price_j');
-            $table->integer('part_qty');
-            $table->string('mod_lbr_ty');
-            $table->float('mod_lb_hrs');
-            $table->boolean('lbr_inc');
-            $table->string('lbr_op');
-            $table->boolean('lbr_hrs_j');
-            $table->boolean('lbr_type_j');
-            $table->boolean('lbr_op_j');
-            $table->float('misc_amt');
-            $table->boolean('misc_sublt');
+            $table->boolean('desc_judgement_ind')->default(0);
+            $table->longtext('line_memo')->nullable();
+            $table->boolean('is_sublet')->default(0);
+            $table->softDeletes();
         });
     }
 

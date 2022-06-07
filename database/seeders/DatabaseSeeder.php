@@ -21,19 +21,34 @@ class DatabaseSeeder extends Seeder
         //\App\Models\UserType::factory()->create();
         \App\Models\Organization::factory()->create();
 
-        \App\Models\Location::factory()->create();
-
         \App\Models\Location::factory()->create([
-          'name' => 'Metro Accident Repair Center',
-          'slug' => 'MetroAccidentRepairCenter',
-          'organization_id' => 1
+          'name' => 'Classic Accident Repair Center',
+          'address_1' => '8697 TYLER BLVD',
+          'city' => 'MENTOR',
+          'state' => 'OH',
+          'zip' => '44060',
+          'phone' => '(440) 205-9900',
+          'slug' => 'ClassicAccidentRepairCenter',
+          'organization_id' => 1,
+          'ccc_rf_id' => 'RF123'
         ]);
 
         \App\Models\Location::factory()->create([
+          'name' => 'Acme Autobody and Paint',
+          'address_1' => '123 R St',
+          'address_2' => 'Suite R',
+          'city' => 'Riverside',
+          'state' => 'CA',
+          'zip' => '92501',
+          'slug' => 'AcmeAutobodyAndPaint',
+          'organization_id' => 1,
+        ]);
+
+        /*\App\Models\Location::factory()->create([
           'name' => 'Mike Johnson\'s Collision Center',
           'slug' => 'MikeJohnsonsCollisionCenter',
           'organization_id' => 1
-        ]);
+        ]);*/
 
          \App\Models\UserType::factory()->create([
             'name' => 'super-admin',
@@ -85,7 +100,7 @@ class DatabaseSeeder extends Seeder
           'curr_location_id' => 1
       ]);
 
-      \App\Models\Repair::factory()->create();
+
 
       User::find(2)->locations()->attach(1);
       User::find(3)->locations()->attach(1);

@@ -12,7 +12,7 @@ export default function OrganizationDashboard(props) {
         >
             <Head title={props.organization.name} />
 
-            <AdminFrame locations={props.locations}/>
+            <AdminFrame locations={props.locations} organization={props.organization.slug}/>
         </AdminAuthenticated>
     );
 }

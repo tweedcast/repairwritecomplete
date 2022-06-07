@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bms_imports', function (Blueprint $table) {
+        Schema::connection('mysql2')->create('ccc_opt_grps', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('grp_id');
+            $table->string('hdr_id');
+            $table->string('group_code');
+            $table->string('description');
+            $table->integer('display_order');
         });
     }
 
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bms_imports');
+        Schema::dropIfExists('ccc_opt_grps');
     }
 };
